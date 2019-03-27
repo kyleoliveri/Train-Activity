@@ -47,38 +47,39 @@ $(document).ready(function () {
         console.log(firstTrain + " (HH:mm - Military Time)");
         console.log("Every " + frequency + " Minutes");
 
-        var conFrequency = parseInt(frequency);
         var currentTime = moment();
+        console.log("Current Time: " + moment(currentTime).format("hh:mm"));
+        
 
-        console.log("Current time: " + moment().format("HHmm A"));
+        // console.log("Current time: " + moment().format("HHmm A"));
 
-        var dateConvert = moment(childSnapshot.val().firstTrain, "HHmm A").subtract(1, "years");
-        console.log("Date Converted: " + dateConvert);
+        // var dateConvert = moment(childSnapshot.val().firstTrain, "HHmm A").subtract(1, "years");
+        // console.log("Date Converted: " + dateConvert);
 
-        var trainTime = moment(dateConvert).format("HHmm A");
-        console.log("Train Time: " + trainTime);
+        // var trainTime = moment(dateConvert).format("HHmm A");
+        // console.log("Train Time: " + trainTime);
 
-        var timeConvert = moment(trainTime, "HHmm A").subtract(1, "years");
-        var timeDifference = moment().diff(moment(timeConvert), "minutes");
-        console.log("Difference in time: " + timeDifference);
+        // var timeConvert = moment(trainTime, "HHmm A").subtract(1, "years");
+        // var timeDifference = moment().diff(moment(timeConvert), "minutes");
+        // console.log("Difference in time: " + timeDifference);
 
-        var timeRemaining = timeDifference % frequency;
-        console.log("Time remaining: " + timeRemaining);
+        // var timeRemaining = timeDifference % frequency;
+        // console.log("Time remaining: " + timeRemaining);
 
-        var timeAway = frequency - timeRemaining;
-        console.log("Minutes until next train: " + timeAway);
+        // var timeAway = frequency - timeRemaining;
+        // console.log("Minutes until next train: " + timeAway);
 
-        var nextArrival = moment().add(timeAway, "minutes");
-        console.log("Arrival time: " + moment(nextArrival).format("HHmm A"));
+        // var nextArrival = moment().add(timeAway, "minutes");
+        // console.log("Arrival time: " + moment(nextArrival).format("HHmm A"));
 
-        var arrivalDisplay = moment(nextArrival).format("HHmm A");
+        // var arrivalDisplay = moment(nextArrival).format("HHmm A");
 
         var newRow = $("<tr>").append(
             $("<td>").text(trainName),
             $("<td>").text(destinatinon),
-            $("<td>").text(firstTrain),
             $("<td>").text(frequency),
-            $("<td>").text(arrivalDisplay)
+            // $("<td>").text(),
+            // $("<td>").text()
         );
 
         $("#train-table").append(newRow);
